@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Cook-book</string>
+    <string name="title_activity_recipes">RecipesActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="main_activity_fragment">Main activity fragment</string>
+    <string name="recipes_activity_fragment">Recipes activity fragment</string>
+    <string name="new_recipe_activity_fragment">New recipe activity fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>

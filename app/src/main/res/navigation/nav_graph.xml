@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/MainActivityFragment">
+
+    <fragment
+        android:id="@+id/MainActivityFragment"
+        android:name="com.example.cook_book.MainActivity"
+        android:label="@string/main_activity_fragment"
+        tools:layout="@layout/activity_main" >
+
+        <action
+            android:id="@+id/action_RecipesActivityFragment_to_RecipesActivityFragment"
+            app:destination="@id/RecipesActivityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/RecipesActivityFragment"
+        android:name="com.example.cook_book.RecipesActivity"
+        android:label="@string/recipes_activity_fragment"
+        tools:layout="@layout/activity_recipes" >
+
+        <action
+            android:id="@+id/action_RecipesActivityFragment_to_NewRecipeActivityFragment"
+            app:destination="@id/NewRecipeActivityFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/NewRecipeActivityFragment"
+        android:name="com.example.cook_book.NewRecipeActivity"
+        android:label="@string/new_recipe_activity_fragment"
+        tools:layout="@layout/activity_new_recipe" >
+
+        <action
+            android:id="@+id/action_RecipesActivityFragment_to_RecipesActivityFragment"
+            app:destination="@id/RecipesActivityFragment" />
+    </fragment>
+</navigation>
