@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,24 +42,12 @@ public class RecipesActivity extends AppCompatActivity {
 
         viewmodal.getAllRecipes().observe(this, models -> adapter.submitList(models));
 
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-            @Override
-            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                return false;
-            }
-
-            @Override
-            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                viewmodal.delete(adapter.getCourseAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(RecipesActivity.this, "Course deleted", Toast.LENGTH_SHORT).show();
-            }
-        }).attachToRecyclerView(recipesRV);
-        adapter.setOnItemClickListener(model -> {
+        adapter.setOnItemClickListener(modal -> {
             Intent intent = new Intent(RecipesActivity.this, NewRecipeActivity.class);
-            intent.putExtra(NewRecipeActivity.EXTRA_ID, model.getId());
-            intent.putExtra(NewRecipeActivity.EXTRA_NAME, model.getName());
-            intent.putExtra(NewRecipeActivity.EXTRA_DESCRIPTION, model.getDescription());
-            intent.putExtra(NewRecipeActivity.EXTRA_DURATION, model.getDuration());
+            intent.putExtra(NewRecipeActivity.EXTRA_ID, modal.getId());
+            intent.putExtra(NewRecipeActivity.EXTRA_NAME, modal.getName());
+            intent.putExtra(NewRecipeActivity.EXTRA_DESCRIPTION, modal.getDescription());
+            intent.putExtra(NewRecipeActivity.EXTRA_DURATION, modal.getDuration());
 
             startActivityForResult(intent, EDIT_REQUEST);
         });
@@ -74,8 +60,8 @@ public class RecipesActivity extends AppCompatActivity {
             String name = data.getStringExtra(NewRecipeActivity.EXTRA_NAME);
             String description = data.getStringExtra(NewRecipeActivity.EXTRA_DESCRIPTION);
             String duration = data.getStringExtra(NewRecipeActivity.EXTRA_DURATION);
-            RecipeModal model = new RecipeModal(name, description, duration);
-            viewmodal.insert(model);
+            RecipeModal modal = new RecipeModal(name, description, duration);
+            viewmodal.insert(modal);
             Toast.makeText(this, "Recipe saved", Toast.LENGTH_SHORT).show();
         } else if (requestCode == EDIT_REQUEST && resultCode == RESULT_OK) {
             int id = data.getIntExtra(NewRecipeActivity.EXTRA_ID, -1);
@@ -86,18 +72,25 @@ public class RecipesActivity extends AppCompatActivity {
             String name = data.getStringExtra(NewRecipeActivity.EXTRA_NAME);
             String description = data.getStringExtra(NewRecipeActivity.EXTRA_DESCRIPTION);
             String duration = data.getStringExtra(NewRecipeActivity.EXTRA_DURATION);
-            RecipeModal model = new RecipeModal(name, description, duration);
-            model.setId(id);
-            viewmodal.update(model);
+            RecipeModal modal = new RecipeModal(name, description, duration);
+            modal.setId(id);
+            viewmodal.update(modal);
             Toast.makeText(this, "Recipe updated", Toast.LENGTH_SHORT).show();
+        } else if (requestCode == EDIT_REQUEST && resultCode == RESULT_CANCELED) {
+            int id = data.getIntExtra(NewRecipeActivity.EXTRA_ID, -1);
+            if (id == -1) {
+                Toast.makeText(this, "Recipe can't be updated", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            String name = data.getStringExtra(NewRecipeActivity.EXTRA_NAME);
+            String description = data.getStringExtra(NewRecipeActivity.EXTRA_DESCRIPTION);
+            String duration = data.getStringExtra(NewRecipeActivity.EXTRA_DURATION);
+            RecipeModal modal = new RecipeModal(name, description, duration);
+            modal.setId(id);
+            viewmodal.delete(modal);
+            Toast.makeText(RecipesActivity.this, "Course deleted", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Recipe not saved", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    @Override
-    public void startActivityForResult(Intent intent, int requestCode) {
-        intent.putExtra("requestCode", requestCode);
-        super.startActivityForResult(intent, requestCode);
     }
 }
