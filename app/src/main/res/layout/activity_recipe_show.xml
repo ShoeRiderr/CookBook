@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/recipeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -20,17 +19,16 @@
         android:textSize="24sp" />
 
     <LinearLayout
-        android:id="@+id/durationLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15sp">
 
         <TextView
-            android:id="@+id/durationLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10sp"
             android:text="@string/recipe_duration"
+            android:textColor="@color/black"
             android:textSize="16sp"
             tools:layout_editor_absoluteX="38sp"
             tools:layout_editor_absoluteY="57sp" />
@@ -40,6 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            android:textColor="@color/black"
             android:textSize="16sp"
             tools:layout_editor_absoluteX="38sp"
             tools:layout_editor_absoluteY="57sp" />

@@ -15,6 +15,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
         openRecipesListButton = findViewById(R.id.open_recipes_list);
 
         openRecipesListButton.setOnClickListener(view -> {

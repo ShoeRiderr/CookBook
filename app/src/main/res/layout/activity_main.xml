@@ -16,16 +16,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="258sp"
         android:layout_height="240sp"
-        android:layout_marginStart="76sp"
+        android:layout_marginStart="77sp"
+        android:layout_marginTop="50sp"
         android:layout_marginEnd="77sp"
         android:contentDescription="@string/main_page_photo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cook_pot" />

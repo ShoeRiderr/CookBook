@@ -2,12 +2,10 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/editElement"
         android:enabled="true"
         android:onClick="onEditElement"
         android:title="@string/edit" />
     <item
-        android:id="@+id/deleteElement"
         android:enabled="true"
         android:onClick="onDeleteElement"
         android:title="@string/delete" />
