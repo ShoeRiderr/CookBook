@@ -9,31 +9,43 @@
         android:id="@+id/MainActivityFragment"
         android:name="com.example.cook_book.MainActivity"
         android:label="@string/main_activity_fragment"
-        tools:layout="@layout/activity_main" >
+        tools:layout="@layout/activity_main">
 
         <action
-            android:id="@+id/action_RecipesActivityFragment_to_RecipesActivityFragment"
+            android:id="@+id/action_MainActivityFragment_to_RecipesActivityFragment"
             app:destination="@id/RecipesActivityFragment" />
     </fragment>
     <fragment
         android:id="@+id/RecipesActivityFragment"
         android:name="com.example.cook_book.RecipesActivity"
         android:label="@string/recipes_activity_fragment"
-        tools:layout="@layout/activity_recipes" >
+        tools:layout="@layout/activity_recipes">
 
         <action
-            android:id="@+id/action_RecipesActivityFragment_to_NewRecipeActivityFragment"
-            app:destination="@id/NewRecipeActivityFragment" />
+            android:id="@+id/action_RecipesActivityFragment_to_RecipeShowActivityFragment"
+            app:destination="@id/RecipeShowActivityFragment" />
     </fragment>
-
     <fragment
-        android:id="@+id/NewRecipeActivityFragment"
-        android:name="com.example.cook_book.NewRecipeActivity"
+        android:id="@+id/RecipeShowActivityFragment"
+        android:name="com.example.cook_book.RecipeShowActivity"
         android:label="@string/new_recipe_activity_fragment"
-        tools:layout="@layout/activity_new_recipe" >
+        tools:layout="@layout/activity_recipe_show">
 
         <action
-            android:id="@+id/action_RecipesActivityFragment_to_RecipesActivityFragment"
+            android:id="@+id/action_RecipeShowActivityFragment_to_RecipeFormActivityFragment"
+            app:destination="@id/RecipeFormActivityFragment" />
+        <action
+            android:id="@+id/back_to_recipesActivityFragment"
+            app:destination="@id/RecipesActivityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/RecipeFormActivityFragment"
+        android:name="com.example.cook_book.RecipeFormActivity"
+        android:label="@string/new_recipe_activity_fragment"
+        tools:layout="@layout/activity_recipe_form">
+
+        <action
+            android:id="@+id/action_RecipeFormActivityFragment_to_RecipeShowActivityFragment"
             app:destination="@id/RecipesActivityFragment" />
     </fragment>
 </navigation>

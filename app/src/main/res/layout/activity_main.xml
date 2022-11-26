@@ -10,8 +10,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cook book"
-        android:textSize="32dp"
+        android:text="@string/app_title"
+        android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,20 +20,21 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="258dp"
-        android:layout_height="240dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginEnd="77dp"
+        android:layout_width="258sp"
+        android:layout_height="240sp"
+        android:layout_marginStart="76sp"
+        android:layout_marginEnd="77sp"
+        android:contentDescription="@string/main_page_photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cookpot_removebg_preview" />
+        app:srcCompat="@drawable/cook_pot" />
 
     <Button
         android:id="@+id/open_recipes_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show recipes"
+        android:text="@string/recipes_show"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

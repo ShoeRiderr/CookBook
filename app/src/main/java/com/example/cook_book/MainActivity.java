@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        openRecipesListButton = (Button) findViewById(R.id.open_recipes_list);
+        openRecipesListButton = findViewById(R.id.open_recipes_list);
 
         openRecipesListButton.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, RecipesActivity.class);

@@ -39,10 +39,9 @@ public class RecipeRVAdapter extends ListAdapter<RecipeModal, RecipeRVAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        RecipeModal model = getCourseAt(position);
-        holder.courseNameTV.setText(model.getName());
-        holder.courseDescTV.setText(model.getDescription());
-        holder.courseDurationTV.setText(model.getDuration());
+        RecipeModal modal = getCourseAt(position);
+        holder.nameRV.setText(modal.getName());
+        holder.durationRV.setText(modal.getDuration());
     }
 
     public RecipeModal getCourseAt(int position) {
@@ -50,13 +49,12 @@ public class RecipeRVAdapter extends ListAdapter<RecipeModal, RecipeRVAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView courseNameTV, courseDescTV, courseDurationTV;
+        TextView nameRV, durationRV;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            courseNameTV = itemView.findViewById(R.id.idTVName);
-            courseDescTV = itemView.findViewById(R.id.idTVCourseDescription);
-            courseDurationTV = itemView.findViewById(R.id.idTVCourseDuration);
+            nameRV = itemView.findViewById(R.id.idRVName);
+            durationRV = itemView.findViewById(R.id.idRVDuration);
 
             itemView.setOnClickListener(v -> {
                 int position = getAdapterPosition();
@@ -68,7 +66,7 @@ public class RecipeRVAdapter extends ListAdapter<RecipeModal, RecipeRVAdapter.Vi
     }
 
     public interface OnItemClickListener {
-        void onItemClick(RecipeModal model);
+        void onItemClick(RecipeModal modal);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
