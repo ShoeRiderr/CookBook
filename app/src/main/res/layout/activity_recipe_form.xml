@@ -1,41 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="15sp"
     tools:context=".RecipeFormActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/idEdtName"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:text="@string/recipe_name" />
 
     <EditText
         android:id="@+id/idEdtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:autofillHints="name"
         android:hint="@string/recipe_name"
         android:inputType="text"
-        android:singleLine="true"
-        android:autofillHints="name"/>
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/idEdtDuration"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:text="@string/recipe_duration_label_hint" />
 
     <EditText
         android:id="@+id/idEdtDuration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:autofillHints="name"
         android:hint="@string/recipe_duration"
         android:inputType="text"
-        android:singleLine="true"
-        android:autofillHints="name"/>
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/idEdtDescription"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:text="@string/recipe_description" />
 
     <EditText
         android:id="@+id/idEdtDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:autofillHints="name"
         android:hint="@string/recipe_description"
         android:inputType="textMultiLine"
-        android:singleLine="false"
-        android:autofillHints="name"/>
+        android:singleLine="false" />
 
     <Button
         android:id="@+id/idBtnSave"

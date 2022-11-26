@@ -13,7 +13,9 @@
     <string name="recipes_show">Show Recipes</string>
     <string name="recipe_name">Recipe Name</string>
     <string name="recipe_duration">Recipe Duration</string>
+    <string name="recipe_duration_label_hint">Recipe Duration (eg. 12 min)</string>
     <string name="recipe_description">Recipe Description</string>
     <string name="recipe_save">Save Recipe</string>
 
+    <string name="preparing_method">Way of preparing:</string>
 </resources>

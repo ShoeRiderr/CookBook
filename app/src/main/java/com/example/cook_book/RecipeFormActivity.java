@@ -2,9 +2,6 @@ package com.example.cook_book;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -39,9 +36,10 @@ public class RecipeFormActivity extends AppCompatActivity {
 
         recipeBtn.setOnClickListener(v -> {
             String name = nameEdt.getText().toString();
-            String description = descriptionEdt.getText().toString();
             String duration = durationEdt.getText().toString();
-            if (name.isEmpty() || description.isEmpty() || duration.isEmpty()) {
+            String description = descriptionEdt.getText().toString();
+
+            if (!validateFields(name, duration, description)) {
                 Toast.makeText(this, "Please enter the valid course details.", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -64,5 +62,9 @@ public class RecipeFormActivity extends AppCompatActivity {
         }
 
         setResult(RESULT_OK, data);
+    }
+
+    private boolean validateFields(String name, String duration, String description) {
+        return !name.isEmpty() && !duration.isEmpty() && duration.matches("(^[0-9]{2}\\smin$)") && !description.isEmpty();
     }
 }
